@@ -1,0 +1,354 @@
+/* =========================================================
+   RMJ — Palette « Forêt & Bleu »  (règle 60 · 30 · 10)
+   60 %  blanc teinté de vert   : fond des pages, calme
+   30 %  vert forêt profond     : structure (en-tête, haut de page, vision, appel, pied de page)
+   10 %  bleu du logo (affiné)  : seul accent (mots-clés, repères, survols, carte du logo)
+   Aucune autre couleur : on joue uniquement avec des nuances de ces trois tons.
+   Se charge APRÈS aube.css. L'intro (la Terre) et l'animation du logo (.assemble) ne changent pas.
+   ========================================================= */
+
+:root {
+  /* 60 % — neutres */
+  --base: #f2f4ef;            /* fond : blanc légèrement vert */
+  --base-2: #e6ebe3;          /* nuance pour alterner les sections */
+  --surface: #ffffff;         /* cartes */
+  /* 30 % — vert forêt */
+  --forest: #143a2c;
+  --forest-2: #1d4a39;        /* nuance plus claire, pour les dégradés très doux */
+  --forest-3: #0d281f;        /* nuance plus sombre : pied de page */
+  /* 10 % — bleu du logo, affiné */
+  --accent: #2163ad;
+  --accent-deep: #194e8a;
+  --accent-soft: #a9cbee;     /* le bleu sur fond vert */
+
+  /* Jetons du site */
+  --night: var(--base);
+  --night-2: var(--base-2);
+  --navy: var(--forest);
+  --ink: #12261d;
+  --ink-2: #2c3e35;
+  --text: #4d5b54;
+  --muted: #7d8882;
+  --line: rgba(20, 58, 44, .12);
+  --paper: var(--base-2);
+  --white: var(--base);
+  --blue: var(--accent);
+  --blue-soft: rgba(33, 99, 173, .08);
+  --logo-bg: var(--forest);
+  --sun-1: var(--accent-soft); --sun-2: var(--accent); --sun-3: var(--accent-deep);
+  --grad-sun: linear-gradient(100deg, var(--accent), var(--accent-deep));
+  color-scheme: light;
+}
+
+body { background: var(--base); color: var(--text); }
+body::after { opacity: .03; }
+::selection { background: var(--accent); color: #fff; }
+
+/* ---------- Typographie ---------- */
+h1, h2, h3, h4, strong { color: var(--ink); }
+h1 em, h2 em, h3 em, blockquote em, .split em .w > i, .foot-brand em {
+  background: none; -webkit-background-clip: border-box; background-clip: border-box;
+  color: var(--accent); -webkit-text-fill-color: var(--accent);
+}
+.lead { color: var(--text); }
+.label { color: var(--muted); }
+.label::after { opacity: .3; }
+.label b, .kicker-tag, .verb b, .row .n, .step b { color: var(--accent); }
+.pull { color: var(--ink); border-color: var(--accent); }
+
+/* ---------- Boutons : vert, qui se remplit de bleu au survol ---------- */
+.btn { border-color: rgba(20, 58, 44, .25); }
+.btn::before { background: var(--accent); }
+.btn-dark { background: var(--forest); color: #fff; border-color: var(--forest); }
+.btn-dark:hover { background: var(--forest); color: #fff; border-color: var(--accent); }
+.btn-light { color: var(--ink); background: transparent; }
+.btn-light::before { background: var(--forest); }
+.btn-light:hover { color: #fff; border-color: var(--forest); }
+.link { color: var(--ink); border-color: rgba(20, 58, 44, .3); }
+.link:hover { color: var(--accent); border-color: var(--accent); }
+
+/* Sur fond vert : bouton blanc, qui se remplit de bleu clair */
+.hero .btn-dark, .cta .btn-dark, .site-header .btn-dark { background: #fff; color: var(--forest); border-color: #fff; }
+.hero .btn-dark::before, .cta .btn-dark::before, .site-header .btn-dark::before { background: var(--accent-soft); }
+.hero .btn-dark:hover, .cta .btn-dark:hover, .site-header .btn-dark:hover { color: var(--forest); border-color: var(--accent-soft); }
+.hero .btn-light { color: #fff; border-color: rgba(255, 255, 255, .4); }
+.hero .btn-light::before { background: #fff; }
+.hero .btn-light:hover { color: var(--forest); border-color: #fff; }
+
+/* ---------- En-tête : vert forêt ---------- */
+.site-header, .site-header.scrolled { background: rgba(20, 58, 44, .96); border-color: rgba(255, 255, 255, .06); }
+.brand-text strong { color: #fff; }
+.brand-text small { color: rgba(255, 255, 255, .55); }
+.menu a:not(.btn) { color: rgba(255, 255, 255, .82); }
+.menu a.active, .menu a:not(.btn):hover { color: #fff; }
+.menu a:not(.btn)::after { background: var(--accent-soft); }
+.burger span { background: #fff; }
+@media (max-width: 920px) { .menu { background: var(--forest); } .menu li { border-color: rgba(255, 255, 255, .1); } }
+
+/* ---------- Blocs vert forêt : textes ---------- */
+.hero, .page-hero, .ink, .site-footer { color: #c3d2c9; }
+.hero h1, .page-hero h1, .ink h2, .ink h3, .ink strong, .hero strong, .hero-meta strong { color: #fff; }
+.hero h1 em, .hero .split em .w > i, .page-hero h1 em, .page-hero .split em .w > i,
+.ink h2 em, .ink .split em .w > i, .cta h2 em, .cta .split em .w > i,
+.ring-head .h2 em, .foot-brand em { color: var(--accent-soft); -webkit-text-fill-color: var(--accent-soft); }
+.hero .lead, .page-hero .lead, .ink .lead { color: #c3d2c9 !important; }
+.hero .label, .page-hero .crumbs, .page-hero .crumbs a, .ink .label { color: rgba(255, 255, 255, .5); }
+.hero .label b, .hero-meta small, .ink .label b { color: var(--accent-soft); }
+
+/* ---------- Accueil ---------- */
+.hero { background: radial-gradient(60% 70% at 85% 10%, rgba(255, 255, 255, .06), transparent 65%), linear-gradient(170deg, var(--forest) 0%, var(--forest-2) 100%); }
+.hero::before { background: radial-gradient(closest-side, rgba(169, 203, 238, .16), transparent 70%); }
+.hero::after { background: linear-gradient(90deg, transparent, rgba(169, 203, 238, .35), transparent); }
+.hero-meta, .hero-meta div + div { border-color: rgba(255, 255, 255, .12); }
+.hero-meta span { color: rgba(255, 255, 255, .6); }
+.hero-art::before { border-color: rgba(169, 203, 238, .45); }
+
+/* La carte du logo : le seul grand aplat bleu du site, le point focal */
+.h3d-card {
+  background: linear-gradient(150deg, #2a70ba 0%, var(--accent) 45%, var(--accent-deep) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14), 0 50px 100px -40px rgba(5, 25, 18, .7);
+}
+.h3d-card::after { background: radial-gradient(circle at var(--gx, 30%) var(--gy, 20%), rgba(255, 255, 255, .22), transparent 45%); mix-blend-mode: soft-light; }
+.h3d-orbit { border-color: rgba(255, 255, 255, .25); }
+.h3d-orbit i::before { background: #fff; box-shadow: 0 0 14px 3px rgba(255, 255, 255, .5); }
+.h3d-letters, .h3d-globe { filter: drop-shadow(0 12px 18px rgba(5, 25, 50, .35)); }
+.h3d-chip { color: #fff; background: rgba(13, 40, 31, .78); border-color: rgba(255, 255, 255, .12); }
+.h3d-chip::before { background: var(--accent-soft); box-shadow: none; }
+.hero-art figcaption { color: #fff; background: rgba(13, 40, 31, .88); border-color: rgba(255, 255, 255, .12); }
+
+/* Bandeau de mots : sur la nuance claire, vert et une touche de bleu */
+.band { background: var(--base-2); border-block: 1px solid var(--line); }
+.band-row .f { color: var(--forest); }
+.band-row .o { color: transparent; -webkit-text-stroke: 1px rgba(20, 58, 44, .35); }
+.band-row .g { background: none; color: var(--accent); -webkit-text-fill-color: var(--accent); }
+.band-row svg { color: var(--accent); }
+
+/* « RÉVEIL » */
+.kinetic { background: var(--base); }
+.kinetic-lines span { -webkit-text-stroke: 1px rgba(20, 58, 44, .22); }
+.kinetic-lines span.lit { background: none; color: var(--forest); -webkit-text-fill-color: var(--forest); -webkit-text-stroke: 0; }
+.kinetic-note { color: var(--text); }
+
+/* ---------- Haut des autres pages : vert forêt ---------- */
+.page-hero { background: radial-gradient(60% 90% at 90% 10%, rgba(255, 255, 255, .06), transparent 65%), linear-gradient(170deg, var(--forest) 0%, var(--forest-2) 100%); border: 0; }
+.page-hero::before { display: none; }
+
+/* ---------- Sections ---------- */
+.paper { background: var(--base-2); }
+.ink { background: var(--forest); }
+
+/* Appel final : vert forêt */
+section:has(> .wrap > .cta) { background: var(--forest); }
+.cta { border: 0; }
+.cta h2 { color: #fff; }
+
+/* Cartes blanches, discrètes, toutes pareilles */
+.rows { border: 0; display: grid; gap: 12px; }
+.rows .row { border: 1px solid var(--line); border-radius: 20px; background: var(--surface); padding: clamp(24px, 3vw, 36px) clamp(22px, 3vw, 40px); }
+.steps { gap: 14px; }
+.step { border: 1px solid var(--line); border-top: 2px solid var(--forest); border-radius: 0 0 18px 18px; background: var(--surface); padding: 28px 24px 30px; }
+.feature { background: var(--surface); border: 1px solid var(--line); }
+.feature .when { background: linear-gradient(160deg, var(--forest-2), var(--forest)); }
+.feature .when small { color: var(--accent-soft); }
+.feature .when strong { color: #fff; }
+.tags span { background: var(--surface); border-color: var(--line); color: var(--ink); }
+.tile { background: var(--base-2); }
+.tile.placeholder { border-color: var(--line); }
+.filter:hover, .filter.active { color: var(--ink); border-color: var(--accent); }
+.contact-list { border-top: 1px solid var(--line); background: none; padding: 0; border-radius: 0; }
+
+/* Formulaire */
+input, select, textarea { color: var(--ink); border-bottom-color: rgba(20, 58, 44, .22); }
+input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+select { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%2312261d' stroke-width='1.5'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 4px center; }
+select option { background: var(--surface); color: var(--ink); }
+.form-msg { color: var(--accent); border-color: var(--accent); }
+.contact-list a, .contact-list span { color: var(--ink); }
+.contact-list a:hover { color: var(--accent); }
+
+/* ---------- Galerie 3D : vert forêt ---------- */
+.ring-section { background: radial-gradient(120% 80% at 50% 70%, #24533f 0%, var(--forest) 55%, var(--forest-3) 100%); }
+.ring-head .kicker-tag, .ring-info small { color: var(--accent-soft); }
+.ring-floor { background: radial-gradient(50% 50% at 50% 50%, rgba(169, 203, 238, .22), transparent 70%); }
+.ring-card { background: #0f3326; }
+.ring-card.placeholder { background: linear-gradient(160deg, #24533f 0%, var(--forest-3) 80%); }
+.ring-card.placeholder small { color: var(--accent-soft); }
+.ring-card.is-front { box-shadow: 0 0 0 1px rgba(169, 203, 238, .55), 0 0 40px rgba(169, 203, 238, .18), 0 40px 80px -20px rgba(0, 0, 0, .7); }
+
+/* ---------- Vitrine des programmes ---------- */
+.sc-progress i { background: var(--accent-soft); }
+
+/* ---------- Pied de page ---------- */
+.site-footer { background: var(--forest-3); border-top: 0; color: #9db0a5; }
+.foot-brand { color: #fff; }
+.site-footer a:hover { color: #fff; }
+.socials a:hover { background: #fff; border-color: #fff; }
+.socials a:hover svg { color: var(--forest-3); }
+
+/* ---------- Compte à rebours, transitions, intro ---------- */
+.preloader { background: linear-gradient(170deg, var(--forest), var(--forest-2)); color: #fff; }
+.pl-count { background: none; color: #fff; -webkit-text-fill-color: #fff; }
+.pl-word { color: rgba(255, 255, 255, .55); }
+.pl-line { background: var(--accent-soft); }
+.pt i { background: var(--forest); }
+.pt i:nth-child(odd) { background: var(--forest-2); }
+.pt i:last-child { background: var(--accent); }
+.intro-enter { background: #fff; color: var(--forest); box-shadow: 0 20px 50px -18px rgba(0, 0, 0, .6); }
+.intro-kicker { color: var(--accent-soft); }
+
+/* ---------- Curseur ---------- */
+.cur-dot { background: var(--accent); }
+.cur-ring { border-color: rgba(20, 58, 44, .45); }
+.cur-ring.hover { background: rgba(33, 99, 173, .1); }
+.cur-ring.label { background: var(--accent); color: #fff; }
+
+/* =========================================================
+   GALERIE : cadres « salle d'exposition »
+   Passe-partout ivoire, filet doré, cartel de musée.
+   Le vert forêt du RMJ et l'or des photos (murs, rideaux, Master Class).
+   ========================================================= */
+:root {
+  --gold: #b08d4c;            /* filet doré, sur fond clair */
+  --gold-soft: rgba(176, 141, 76, .45);
+  --mat: #fbf8f1;             /* passe-partout ivoire */
+}
+
+/* Filtres : élégants, en petites capitales */
+.filters { justify-content: center; gap: 4px 26px; border-bottom-color: var(--gold-soft); margin-bottom: clamp(48px, 6vw, 72px); }
+.filter { font-size: .68rem; letter-spacing: .18em; }
+.filter.active, .filter:hover { color: var(--forest); border-color: var(--gold); }
+
+.gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-flow: row dense; gap: clamp(36px, 4vw, 60px) clamp(22px, 2.6vw, 40px); align-items: stretch; }
+
+/* La carte : pas de boîte, juste l'œuvre et son cartel */
+.gallery .tile,
+.gallery .tile:nth-child(n) {
+  transform: none; aspect-ratio: auto; display: flex; flex-direction: column;
+  background: none; border: 0; border-radius: 0; padding: 0; overflow: visible; box-shadow: none;
+  transition: opacity 1s var(--ease-out), transform 1.2s var(--ease-out);
+}
+.gallery .tile.feat { grid-column: span 2; }
+.gallery .tile.feat-r { grid-column: 2 / span 2; }
+
+/* Le cadre : passe-partout ivoire + filet extérieur + filet doré intérieur */
+.tile-mat {
+  position: relative; display: flex; flex-direction: column; flex: none;
+  padding: clamp(12px, 1.4vw, 20px); background: var(--mat);
+  border: 1px solid rgba(20, 58, 44, .14);
+  box-shadow: 0 1px 1px rgba(18, 38, 29, .04), 0 18px 40px -26px rgba(18, 38, 29, .35);
+  transition: box-shadow .7s var(--ease-out), translate .7s var(--ease-out);
+}
+.tile-mat::before { /* filet doré, posé au bord de la photo */
+  content: ""; position: absolute; inset: clamp(6px, .7vw, 10px); border: 1px solid var(--gold-soft); pointer-events: none;
+  transition: inset .7s var(--ease-out), border-color .7s;
+}
+.tile-media { position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden; background: var(--base-2); }
+.tile.feat .tile-mat { flex: 1; }
+.tile.feat .tile-media { aspect-ratio: auto; flex: 1; min-height: 260px; }
+.tile-media img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%;
+  filter: saturate(.92) contrast(1.02); transition: transform 1.6s var(--ease-out), filter .9s;
+}
+.tile-media::after { /* fin liseré sombre autour de la photo, comme un tirage encadré */
+  content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(18, 38, 29, .12), inset 0 0 40px rgba(0, 0, 0, .06); pointer-events: none;
+}
+
+.tile-zoom {
+  position: absolute; top: clamp(22px, 2.2vw, 32px); right: clamp(22px, 2.2vw, 32px); z-index: 1;
+  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(251, 248, 241, .94); color: var(--forest); border: 1px solid var(--gold-soft);
+  opacity: 0; transform: translateY(6px); transition: opacity .45s, transform .45s var(--ease-out);
+}
+.tile-zoom svg { width: 15px; height: 15px; }
+
+/* Le cartel : numéro italique, titre, filet doré, catégorie */
+.tile-info { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0; padding: 22px 12px 0; }
+.tile-num { font-family: var(--serif); font-style: italic; font-size: .98rem; color: var(--gold); letter-spacing: .04em; margin-bottom: 6px; }
+.tile-info strong { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(1.1rem, 1.35vw, 1.3rem); line-height: 1.25; color: var(--ink); max-width: 30ch; }
+.tile-rule { display: block; width: 28px; height: 1px; margin: 14px 0 12px; background: var(--gold); transition: width .7s var(--ease-out); }
+.tile-info small { font-size: .62rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); }
+
+/* Survol : le cadre se soulève, le filet doré se resserre, la photo reprend toutes ses couleurs */
+.gallery .tile:hover .tile-mat, .gallery .tile:focus-visible .tile-mat {
+  translate: 0 -6px; box-shadow: 0 2px 2px rgba(18, 38, 29, .04), 0 34px 60px -30px rgba(18, 38, 29, .5);
+}
+.gallery .tile:hover .tile-mat::before, .gallery .tile:focus-visible .tile-mat::before { inset: clamp(9px, 1vw, 14px); border-color: var(--gold); }
+.gallery .tile:hover .tile-media img { transform: scale(1.045); filter: none; }
+.gallery .tile:hover .tile-zoom, .gallery .tile:focus-visible .tile-zoom { opacity: 1; transform: none; }
+.gallery .tile:hover .tile-rule, .gallery .tile:focus-visible .tile-rule { width: 64px; }
+.gallery .tile:focus-visible { outline: none; }
+.gallery .tile:focus-visible .tile-mat { outline: 1px solid var(--gold); outline-offset: 6px; }
+
+/* Apparition : fondu qui monte */
+.gallery .tile.clip-in, .gallery .tile.clip-in.in { clip-path: none; }
+.gallery .tile.clip-in:not(.in) { opacity: 0; transform: translateY(40px); }
+
+/* Cadres « Photo à venir » */
+.gallery .tile.placeholder { aspect-ratio: 4 / 5; display: grid; place-items: center; background: var(--mat); border: 1px dashed var(--gold-soft); }
+
+@media (max-width: 920px) {
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gallery .tile.feat, .gallery .tile.feat-r { grid-column: 1 / -1; }
+  .tile.feat .tile-mat { flex: none; }
+  .tile.feat .tile-media { flex: none; aspect-ratio: 16 / 10; min-height: 0; }
+}
+@media (max-width: 640px) {
+  .gallery { gap: 30px 14px; }
+  .tile-mat { padding: 8px; }
+  .tile-mat::before { inset: 4px; }
+  .tile-info { padding: 14px 4px 0; }
+  .tile-num { font-size: .85rem; margin-bottom: 4px; }
+  .tile-info strong { font-size: .98rem; }
+  .tile-rule { margin: 10px 0 8px; }
+  .tile-info small { font-size: .54rem; letter-spacing: .14em; }
+  .tile-zoom { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gallery .tile, .tile-mat, .tile-mat::before, .tile-media img, .tile-rule { transition: none; }
+  .gallery .tile:hover .tile-mat { translate: none; }
+}
+
+/* =========================================================
+   RESPONSIVE : ajustements tablette et téléphone
+   ========================================================= */
+@media (max-width: 920px) {
+  /* Carte 3D de l'accueil : centrée, avec de l'air pour les étiquettes */
+  .hero-art { margin-inline: auto; width: min(420px, 82%); }
+  .h3d-chip.c4 { right: auto; left: 8%; bottom: 3%; }
+}
+@media (max-width: 640px) {
+  .hero-art { width: 86%; margin-top: 18px; }
+  .hero-art figcaption { font-size: .92rem; padding: 12px 16px; }
+  .h3d-chip { font-size: .64rem; padding: 7px 11px; }
+  .h3d-chip.c1 { left: 2%; top: 14%; } .h3d-chip.c3 { left: 0%; bottom: 30%; } .h3d-chip.c2 { right: -4%; top: 44%; }
+  .h3d-chip.c4 { left: auto; right: -2%; top: -4%; bottom: auto; }
+
+  /* Programmes : le grand mot décoratif passait derrière le titre */
+  .sc-word { display: none; }
+
+  /* Mouvement : place pour l'ellipse des six verbes autour du logo */
+  .as-scene { margin-block: 40px 190px; }
+  .as-verbs li { font-size: .95rem; padding: 7px 12px; min-width: 150px; text-align: center; }
+
+  /* Textes minimum lisibles */
+  .tile-info small { font-size: .62rem; letter-spacing: .12em; }
+  .filter { font-size: .7rem; }
+}
+@media (max-width: 380px) {
+  .tile-info strong { font-size: .92rem; }
+  .gallery { gap: 26px 10px; }
+}
+
+/* Intro 3D sur téléphone : légende des régions en bandeau compact sous le globe */
+@media (max-width: 700px) {
+  .intro-legend {
+    left: 12px; right: 12px; bottom: 112px; top: auto; transform: none;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 14px;
+    padding: 10px 12px; border-radius: 14px;
+    background: transparent; border: 1px solid transparent; transition: background .6s, border-color .6s;
+  }
+  .intro-legend:has(li.on) { background: rgba(2, 3, 6, .6); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-color: rgba(245, 240, 232, .1); }
+  .intro-legend li { font-size: .6rem; letter-spacing: .1em; gap: 6px; }
+  .intro-legend li i { width: 8px; height: 8px; }
+  .intro-caption { bottom: 40px; font-size: 1.05rem; }
+}

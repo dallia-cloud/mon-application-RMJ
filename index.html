@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RMJ – Réveil Mondial de la Jeunesse</title>
+<meta name="description" content="Le Réveil Mondial de la Jeunesse (RMJ) est un mouvement de conscience, de formation, d'influence et de mobilisation de la jeunesse africaine.">
+<meta property="og:title" content="RMJ – Réveil Mondial de la Jeunesse">
+<meta property="og:description" content="Éveiller, former, connecter et positionner une génération de bâtisseurs africains.">
+<meta property="og:image" content="assets/logo-rmj.jpg">
+<meta name="theme-color" content="#efeae2">
+<link rel="icon" href="assets/logo-rmj.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=20261121">
+<link rel="stylesheet" href="css/aube.css?v=20261121">
+<link rel="stylesheet" href="css/horizon.css?v=20261121">
+<!-- Cache la page dès le début pour que le visiteur voie d'abord l'intro (la Terre, puis l'Afrique). -->
+<script>
+  try { if (sessionStorage.getItem("rmj-transit") !== "1" && !matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("intro-pending"); } catch (e) {}
+  setTimeout(function () { document.documentElement.classList.remove("intro-pending"); }, 8000); // sécurité si un script ne charge pas
+</script>
+</head>
+<body data-page="accueil">
+
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Navigation principale">
+    <a href="index.html" class="brand" aria-label="RMJ – accueil"><img src="assets/logo-rmj.jpg" alt=""><span class="brand-text"><strong>RMJ</strong><small>Réveil Mondial de la Jeunesse</small></span></a>
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <ul class="menu" id="menu">
+      <li><a href="index.html" data-page="accueil">Accueil</a></li>
+      <li><a href="mouvement.html" data-page="mouvement">Le mouvement</a></li>
+      <li><a href="programmes.html" data-page="programmes">Programmes</a></li>
+      <li><a href="galerie.html" data-page="galerie">Galerie</a></li>
+      <li><a href="rejoindre.html" class="btn btn-dark">Nous rejoindre</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ===== HÉROS ===== -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="reveal">
+          <p class="label"><b>RMJ</b> Réveil Mondial de la Jeunesse</p>
+          <h1 class="display">Éveiller une génération qui <em>bâtit</em> l’Afrique.</h1>
+          <p class="lead">L’Afrique ne manque pas de potentiel. Elle a besoin d’une génération consciente, préparée et suffisamment responsable pour prendre en main son destin.</p>
+          <div class="hero-ctas">
+            <a href="rejoindre.html" class="btn btn-dark">Rejoindre le mouvement
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+            <a href="mouvement.html" class="btn btn-light">Notre vision</a>
+          </div>
+        </div>
+        <figure class="hero-art reveal d2">
+          <!-- Logo en couches 3D : réagit à la souris (voir js/main.js, « Héros 3D ») -->
+          <div class="h3d" id="hero3d">
+            <div class="h3d-stage">
+              <div class="h3d-card" data-depth="0"></div>
+              <div class="h3d-orbit" data-depth="20" aria-hidden="true"><i></i></div>
+              <div class="h3d-box">
+                <img class="h3d-letters" data-depth="60" src="assets/rmj-lettres-blanc.png" alt="RMJ">
+                <img class="h3d-globe" data-depth="110" src="assets/globe-blanc.png" alt="">
+                <img class="h3d-slogan" data-depth="40" src="assets/rmj-slogan-blanc.png" alt="Réveil Mondial de la Jeunesse">
+              </div>
+              <span class="h3d-chip c1" data-depth="150">Éveiller</span>
+              <span class="h3d-chip c2" data-depth="120">Former</span>
+              <span class="h3d-chip c3" data-depth="170">Connecter</span>
+              <span class="h3d-chip c4" data-depth="100">Responsabiliser</span>
+            </div>
+          </div>
+          <figcaption>We believe in<br>African youth.</figcaption>
+        </figure>
+      </div>
+
+      <div class="hero-meta reveal">
+        <div><small>Chaque mois</small><strong>La Convocation</strong><span>Le troisième samedi du mois</span></div>
+        <div><small>Tous les deux ans</small><strong>Génération Influence Afrique</strong><span>Le rendez-vous panafricain</span></div>
+        <div><small>En ligne</small><strong>Webinaires panafricains</strong><span>Des jeunes connectés à travers le continent</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== BANDEAU : les six verbes défilent, plus vite quand on fait défiler la page ===== -->
+  <section class="band" aria-label="Éveiller, former, équiper, connecter, positionner, responsabiliser">
+    <div class="band-row" aria-hidden="true"><span class="f">Éveiller<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 6.2L20 6l-4.2 5 6.2 1-6.2 1 4.2 5-6.4-2.2L12 22l-1.6-6.2L4 18l4.2-5L2 12l6.2-1L4 6l6.4 2.2z"/></svg></span><span class="o">Former<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 6.2L20 6l-4.2 5 6.2 1-6.2 1 4.2 5-6.4-2.2L12 22l-1.6-6.2L4 18l4.2-5L2 12l6.2-1L4 6l6.4 2.2z"/></svg></span><span class="g">Équiper<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 6.2L20 6l-4.2 5 6.2 1-6.2 1 4.2 5-6.4-2.2L12 22l-1.6-6.2L4 18l4.2-5L2 12l6.2-1L4 6l6.4 2.2z"/></svg></span><span class="o">Connecter<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 6.2L20 6l-4.2 5 6.2 1-6.2 1 4.2 5-6.4-2.2L12 22l-1.6-6.2L4 18l4.2-5L2 12l6.2-1L4 6l6.4 2.2z"/></svg></span><span class="f">Positionner<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 6.2L20 6l-4.2 5 6.2 1-6.2 1 4.2 5-6.4-2.2L12 22l-1.6-6.2L4 18l4.2-5L2 12l6.2-1L4 6l6.4 2.2z"/></svg></span><span class="o">Responsabiliser<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 6.2L20 6l-4.2 5 6.2 1-6.2 1 4.2 5-6.4-2.2L12 22l-1.6-6.2L4 18l4.2-5L2 12l6.2-1L4 6l6.4 2.2z"/></svg></span></div>
+    <div class="band-row" aria-hidden="true"><span class="g">Responsabiliser<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 6.2L20 6l-4.2 5 6.2 1-6.2 1 4.2 5-6.4-2.2L12 22l-1.6-6.2L4 18l4.2-5L2 12l6.2-1L4 6l6.4 2.2z"/></svg></span><span class="o">Positionner<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 6.2L20 6l-4.2 5 6.2 1-6.2 1 4.2 5-6.4-2.2L12 22l-1.6-6.2L4 18l4.2-5L2 12l6.2-1L4 6l6.4 2.2z"/></svg></span><span class="g">Connecter<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 6.2L20 6l-4.2 5 6.2 1-6.2 1 4.2 5-6.4-2.2L12 22l-1.6-6.2L4 18l4.2-5L2 12l6.2-1L4 6l6.4 2.2z"/></svg></span><span class="f">Équiper<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 6.2L20 6l-4.2 5 6.2 1-6.2 1 4.2 5-6.4-2.2L12 22l-1.6-6.2L4 18l4.2-5L2 12l6.2-1L4 6l6.4 2.2z"/></svg></span><span class="g">Former<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 6.2L20 6l-4.2 5 6.2 1-6.2 1 4.2 5-6.4-2.2L12 22l-1.6-6.2L4 18l4.2-5L2 12l6.2-1L4 6l6.4 2.2z"/></svg></span><span class="o">Éveiller<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 6.2L20 6l-4.2 5 6.2 1-6.2 1 4.2 5-6.4-2.2L12 22l-1.6-6.2L4 18l4.2-5L2 12l6.2-1L4 6l6.4 2.2z"/></svg></span></div>
+  </section>
+
+  <!-- ===== 01 GALERIE ===== -->
+  <section class="section paper">
+    <div class="wrap">
+      <div class="gallery-head reveal">
+        <div>
+          <p class="label"><b>01</b> En images</p>
+          <h2 class="h2">La vie du <em>mouvement</em>.</h2>
+        </div>
+        <a href="galerie.html" class="link">Voir la galerie
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="gallery reveal" id="gallery-preview"></div>
+    </div>
+  </section>
+
+  <!-- ===== RÉVEIL : le mot s'épaissit à mesure qu'on descend ===== -->
+  <section class="kinetic" aria-label="Réveil">
+    <div class="kinetic-lines" aria-hidden="true">
+      <span>Réveil</span><span>Réveil</span><span>Réveil</span><span>Réveil</span><span>Réveil</span>
+    </div>
+    <p class="kinetic-note">Une génération qui se lève pour bâtir l’Afrique.</p>
+  </section>
+
+  <!-- ===== APPEL ===== -->
+  <section>
+    <div class="wrap">
+      <div class="cta reveal">
+        <h2>Prenez votre place dans la construction de l’<em>Afrique</em>.</h2>
+        <a href="rejoindre.html" class="btn btn-dark">Nous rejoindre
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <p class="foot-brand">Réveil Mondial<br>de la <em>Jeunesse</em></p>
+        <p>Un mouvement de conscience, de formation, d’influence et de mobilisation de la jeunesse africaine.</p>
+        <div class="socials">
+          <!-- TODO : remplacer par la page Facebook officielle du RMJ -->
+          <a href="https://www.facebook.com/share/1CGdJHyHmS/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.7-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.2-.6.6-.6z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Le mouvement</h4>
+        <ul>
+          <li><a href="mouvement.html#qui">Qui sommes-nous</a></li>
+          <li><a href="mouvement.html#vision">Notre vision</a></li>
+          <li><a href="mouvement.html#valeurs">Nos valeurs</a></li>
+          <li><a href="mouvement.html#demarche">Notre démarche</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Programmes</h4>
+        <ul>
+          <li><a href="programmes.html#convocation">La Convocation</a></li>
+          <li><a href="programmes.html#gia">Génération Influence Afrique</a></li>
+          <li><a href="programmes.html#pacte">Pacte Africa</a></li>
+          <li><a href="programmes.html#masterclass">RMJ Masterclass</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <!-- TODO : remplacer par les vraies coordonnées -->
+          <li><a href="mailto:contact@exemple.org">contact@exemple.org</a></li>
+          <li><a href="tel:+00000000000">+000 00 00 00 00</a></li>
+          <li><a href="rejoindre.html">Nous rejoindre</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy"><span>© <span data-year></span> Réveil Mondial de la Jeunesse</span><span>We believe in African youth</span></div>
+  </div>
+</footer>
+
+<script src="js/photos.js?v=20261121"></script>
+<script src="js/main.js?v=20261121"></script>
+<script src="js/vendor/three.min.js"></script>
+<script src="js/vendor/terre.js"></script>
+<script src="js/intro.js?v=20261121"></script>
+<script src="js/vendor/lenis.min.js"></script>
+<script src="js/motion.js?v=20261121"></script>
+</body>
+</html>
